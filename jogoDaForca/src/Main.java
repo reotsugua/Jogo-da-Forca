@@ -22,12 +22,13 @@ public class Main {
         for (int i = 0; i < palavraArray.length; i++) {
             if (((Character) palavraArray[i]).equals(letraInserida)) {
                 palavraAchada[i] = letraInserida;
-                System.out.println(palavraAchada.toString());
+
             }
 
-
-
-            //System.out.println(((Character) palavraArray[i]).equals(letraInserida));
+        }
+        for (char a: palavraAchada
+            ) {
+            System.out.println(a);
         }
 
 
