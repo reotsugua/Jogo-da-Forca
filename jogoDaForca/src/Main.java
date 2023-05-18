@@ -72,6 +72,7 @@ public class Main {
 
     }
 
+
     public static void verificaSeGanhou(){
         boolean vazio;
         for (int i = 0; i < palavraArray.length; i++) {
