@@ -9,11 +9,9 @@ public class Main {
         //String palavraSecreta = scanner.nextLine().trim().toUpperCase();
         char[] palavraArray = palavraSecreta.toCharArray();
         char[] palavraAchada = new char[palavraArray.length];
+        Integer contador = 5;
 
-        //char[] palavraAchada = [palavraArray.length];
-        /*for (char c: palavraArray
-        ) {
-            System.out.println(c);}*/
+
 
         System.out.println("Insira uma letra");
         char letraInserida = scanner.next().trim().toUpperCase().charAt(0);
@@ -22,9 +20,7 @@ public class Main {
         for (int i = 0; i < palavraArray.length; i++) {
             if (((Character) palavraArray[i]).equals(letraInserida)) {
                 palavraAchada[i] = letraInserida;
-
             }
-
         }
         for (char a: palavraAchada
             ) {
