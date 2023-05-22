@@ -18,34 +18,78 @@ public class Main {
         Character[] arrayPalavraDescoberta = new Character[arrayDaPalavraSecreta.length];
         Arrays.fill(arrayPalavraDescoberta, '_');
 
+        // - Chances do jogo
+        Integer contador = 6;
+
 
 
         boolean controle = true;
         do {
             // - Escolher a letra
-            System.out.println("Chute uma letra: ");
+            System.out.println("\nChute uma letra: ");
             Character letraEscolhida = scanner.next().trim().toUpperCase().charAt(0);
 
             // - Ver se a letra escolhida contem na palavraSecreta
             System.out.println("achei " +letrasAchadas(arrayDaPalavraSecreta, letraEscolhida)+ " letras");
 
-            // - Inserir a letra na palavra achada
-            for (int i = 0; i < arrayDaPalavraSecreta.length; i++) {
-                if (arrayDaPalavraSecreta[i] == letraEscolhida) {
-                    arrayPalavraDescoberta[i] = letraEscolhida;
+            if (letrasAchadas(arrayDaPalavraSecreta, letraEscolhida) == 0) {
+                contador -= 1;
+                System.out.println("vc errou");
+                if (contador == 0) {
+                    System.out.println("jogo acabou");
+                    controle = false;
+                } else {
+                    System.out.println("Lhe sobrou "+contador+" chances");
                 }
+
+            } else {
+                // - Inserir a letra na palavra achada
+                for (int i = 0; i < arrayDaPalavraSecreta.length; i++) {
+                    if (arrayDaPalavraSecreta[i] == letraEscolhida) {
+                        arrayPalavraDescoberta[i] = letraEscolhida;
+                    }
+                }
+                imprimirPalavraDescoberta(arrayPalavraDescoberta);
+
+                // - Verifica se ganhou
+                boolean ganhou = false;
+                if (ganhou == false) {
+                    for (Character a:arrayPalavraDescoberta
+                    ) {
+                        if (a == '_') {
+                            System.out.println("ainda nao ganhou, continue");
+                            break;
+                        }
+                    }
+                } else if (ganhou) {
+                    System.out.println("vc ganhou");
+                    controle = false;
+                }
+
+
             }
+
+
+
 
             // - Imprimo a palavra descoberta
-            for (Character a:arrayPalavraDescoberta
+            /*for (Character a:arrayPalavraDescoberta
             ) {
-                System.out.println(a);
-            }
+                System.out.print(" "+a+" ");
+            }*/
 
 
 
-        } while (true);
 
+        } while (controle);
+
+    }
+
+    public static void imprimirPalavraDescoberta(Character[] arrayPalavraDescoberta){
+        for (Character a:arrayPalavraDescoberta
+        ) {
+            System.out.print(" "+a+" ");
+        }
     }
 
     public static Integer letrasAchadas(char[] arrayDaPalavraSecreta, Character letraEscolhida){
