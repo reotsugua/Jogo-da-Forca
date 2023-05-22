@@ -14,8 +14,7 @@ public class Main {
         static int numLetraEncontrada = 0;
     public static void main(String[] args) {
             Arrays.fill(palavraAchada, '_');
-        do {
-            System.out.print("""
+        System.out.print("""
               Jogo da Forca
             _________________
             |               |
@@ -23,13 +22,14 @@ public class Main {
             |
             |
             """);
-            for (char a: palavraAchada
-            ) {
-                System.out.print( " - "+ a + " - ");
-            }
-            System.out.println("\nVocê tem " + contador + " chances");
-
-            System.out.println("Insira uma letra");
+        for (char a: palavraAchada
+        ) {
+            System.out.print( " - "+ a + " - ");
+        }
+        System.out.println("\nVocê tem " + contador + " chances");
+        do {
+            desenhoForca();
+            System.out.println("\nInsira uma letra: ");
             letraInserida = scanner.next().trim().toUpperCase().charAt(0);
 
 
@@ -71,7 +71,7 @@ public class Main {
             }
             for (char a: palavraAchada
             ) {
-                System.out.println(a);
+                System.out.print( " - "+ a + " - ");
             }
         }
         numLetraEncontrada=0;
@@ -102,6 +102,77 @@ public class Main {
         }
 
     }
+
+    public static void desenhoForca(){
+        switch (contador){
+            case 5 ->
+                System.out.print("""
+              Jogo da Forca
+            _________________
+            |               |
+            |               O
+            |
+            |
+            """);
+            case 4 ->
+                    System.out.print("""
+              Jogo da Forca
+            _________________
+            |               |
+            |               O
+            |               |
+            |
+            """);
+            case 3 ->
+                    System.out.print("""
+              Jogo da Forca
+            _________________
+            |               |
+            |               O
+            |              /|
+            |
+            """);
+            case 2 ->
+                    System.out.print("""
+              Jogo da Forca
+            _________________
+            |               |
+            |               O
+            |              /|\\
+            |
+            """);
+            case 1 ->
+                    System.out.print("""
+              Jogo da Forca
+            _________________
+            |               |
+            |               O
+            |              /|\\
+            |              /
+            """);
+            case 0 ->
+                    System.out.print("""
+              Jogo da Forca
+            _________________
+            |               |
+            |               O
+            |              /|\\
+            |              / \\
+            """);
+           case 6 ->
+                    System.out.print("""
+              Jogo da Forca
+            _________________
+            |               |
+            |
+            |
+            |
+            """);
+
+
+        }
+    }
+
 
 
 }
