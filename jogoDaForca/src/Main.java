@@ -1,3 +1,4 @@
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class Main {
@@ -8,14 +9,25 @@ public class Main {
         static char[] palavraArray = palavraSecreta.toCharArray();
         static char[] palavraAchada = new char[palavraArray.length];
         static char letraInserida;
-        static Integer contador = 2;
+        static Integer contador = 6;
         static boolean continuar = true;
         static int numLetraEncontrada = 0;
     public static void main(String[] args) {
+            Arrays.fill(palavraAchada, '_');
         do {
-            System.out.println("Jogo da forca");
-            System.out.println("_ - _ - _ - _ - _");
-            System.out.println("Você tem " + contador + " chances");
+            System.out.print("""
+              Jogo da Forca
+            _________________
+            |               |
+            |
+            |
+            |
+            """);
+            for (char a: palavraAchada
+            ) {
+                System.out.print( " - "+ a + " - ");
+            }
+            System.out.println("\nVocê tem " + contador + " chances");
 
             System.out.println("Insira uma letra");
             letraInserida = scanner.next().trim().toUpperCase().charAt(0);
@@ -24,6 +36,7 @@ public class Main {
 
             verificaSeTemLetra();
             inserirLetraEncontra();
+            verificaSeGanhou();
             verificaChances();
 
 
@@ -74,17 +87,17 @@ public class Main {
 
 
     public static void verificaSeGanhou(){
-        boolean vazio;
-        for (int i = 0; i < palavraArray.length; i++) {
-            if (((Character) palavraArray[i]).equals(null)) {
+        boolean vazio = false;
+        for (Character a: palavraAchada
+        ) {
+            if (a == null || a.equals('_')) {
                 vazio = true;
-            }else {
-
-                vazio
+                break;
             }
+
         }
-        if (vazio = false){
-            System.out.println("Vc ganhou");
+        if (!vazio) {
+            System.out.println("vc venceu");
             continuar = false;
         }
 
