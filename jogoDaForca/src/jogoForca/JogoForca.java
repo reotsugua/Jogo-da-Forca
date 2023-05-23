@@ -1,15 +1,24 @@
 package jogoForca;
 
 import java.util.Arrays;
+import java.util.Random;
 import java.util.Scanner;
 
 public class JogoForca {
     public static void main(String[] args){
-        // - Escolher a palavra secreta
+        Scanner scanner = new Scanner(System.in);
+
+        // Escolhe uma palavra secreta aleatória de um array
+        String[] palavras = {"programação", "renan", "bola", "gato", "java"};
+        Random r = new Random();
+        int indice = r.nextInt(palavras.length);
+        String palavraSecreta = palavras[indice].trim().toUpperCase();
+
+        /* // - Escolher a palavra secreta manualmente
         Scanner scanner = new Scanner(System.in);
         System.out.println("--JOGO DA FORCA--");
         System.out.println("Escolha a palavra secreta: ");
-        String palavraSecreta = scanner.nextLine().trim().toUpperCase();
+        String palavraSecreta = scanner.nextLine().trim().toUpperCase();*/
 
         // - Converter String em Array de Char
         char[] arrayDaPalavraSecreta = palavraSecreta.toCharArray();
