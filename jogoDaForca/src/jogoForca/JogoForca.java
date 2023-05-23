@@ -9,7 +9,7 @@ public class JogoForca {
         Scanner scanner = new Scanner(System.in);
 
         // Escolhe uma palavra secreta aleatória de um array
-        String[] palavras = {"programação", "renan", "bola", "gato", "java"};
+        String[] palavras = {"programacao", "renan", "bola", "gato", "java"};
         Random r = new Random();
         int indice = r.nextInt(palavras.length);
         String palavraSecreta = palavras[indice].trim().toUpperCase();
